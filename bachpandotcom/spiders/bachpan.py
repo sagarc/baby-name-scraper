@@ -16,7 +16,7 @@ class BachpanSpider(scrapy.Spider):
 
     def start_requests(self):
         urls = [
-            'https://bachpan.com/indian-boy-names-{}.aspx?page=1'.format(c) for c in ascii_lowercase]
+            'https://www.bachpan.com/indian-girl-names-{}.aspx?page=1'.format(c) for c in ascii_lowercase]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
@@ -32,3 +32,5 @@ class BachpanSpider(scrapy.Spider):
             print(next_page)
             # self.log("next_page %s", next_page)
             yield scrapy.Request(next_page, callback=self.parse)
+        else:
+            print(f"no data found for {response.url}")

@@ -13,6 +13,6 @@ for x in data:
 
 # print(names)
 
-with open('bachpan.txt', 'w') as myfile:
+with open('girlnames.txt', 'w') as myfile:
     for name in names:
         data = myfile.write(name + "\n")
