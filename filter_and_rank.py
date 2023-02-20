@@ -3,11 +3,11 @@
 from collections import Counter
 from functools import cmp_to_key
 
-pran = Counter('kunalsupriya')
+pran = Counter('sagarprachi')
 
 
 def matchfn(name):
-    return sum((Counter(name) - (Counter('kunalsupriya'))).values()) == 0 and (len(name) >= 4 and len(name) <= 6)
+    return sum((Counter(name) - (Counter('sagarprachi'))).values()) == 0 and (len(name) >= 4 and len(name) <= 6)
 
 def sort_key(name):
   lowercase = name.lower()
@@ -18,12 +18,12 @@ def sort_key(name):
   return (len(lowercase), sum(vowel_counts.values()))
 
 
-with open('girlnames.txt', 'r') as myfile:
+with open('boynames.txt', 'r') as myfile:
     data = myfile.read().split("\n")
 
 data = filter(lambda x: matchfn(x), data)
 data = sorted(data, key=sort_key)
 
-with open('girlnamesranked.txt', 'w') as myfile:
+with open('boynamesranked.txt', 'w') as myfile:
     for name in data:
         myfile.write("{}\n".format(name))
